@@ -545,7 +545,7 @@
     <div class="emp-table-container mt-5">
         <h6>Employee Information</h6>
         <input type="text" class="form-control" id="searchInput" placeholder="Search for employees..."
-            onkeyup="filterEmployees()">
+            onkeydown="filterEmployees()">
         <select id="employeeSelect" onchange="fillEmployeeDetails(this.value)" class="form-select mt-2">
             <option value="">Select an Employee</option>
             {% for user in users %}
