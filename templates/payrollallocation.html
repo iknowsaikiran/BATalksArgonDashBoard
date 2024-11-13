@@ -24,9 +24,9 @@
         }
 
         .payslip-container {
-            width: 70%;
-            margin: 20px auto;
-            margin-left: 10px;
+            
+            max-width: 700px;
+            margin: 20px ;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -159,7 +159,7 @@
             position: absolute;
             right: 20px;
             top: 7%;
-            
+            /* width: 18%;*/
             max-width: 400px;
             padding: 20px;
             border: 1px solid #ccc;
@@ -313,7 +313,7 @@
             top: 55%;
             right: 20px;
         }
-        
+
         .generate-id-btn:hover {
             background-color: #45a049;
             /* Darker green on hover */
@@ -332,8 +332,6 @@
             border-radius: 5px;
             font-size: 10px;
             cursor: pointer;
-            margin: 10px 0px;
-            font-size: 14px;
         }
 
         #payslipIdDisplay {
@@ -343,7 +341,7 @@
     </style>
 </head>
 
-<body class="g-sidenav-show bg-gray-100">
+<body class="g-sidenav-show bg-gray-100 w-100">
     <div class="payslip-container" id="payslip">
         <form method="POST">
             <div class="header">
@@ -381,6 +379,11 @@
                         <td id="emp-id"></td>
                         <input type="hidden" name="emp_id" id="emp-id-hidden">
                     </tr>
+                    <!-- <tr>
+                        <td>Date of Joining</td>
+                        <td>:</td>
+                        <td id="emp-join"></td>
+                    </tr> -->
                     <tr>
                         <td>Pay Period</td>
                         <td>:</td>
@@ -501,11 +504,11 @@
                     </table>
                     <div class="wDays">
                         <label>Number of Working Days: </label>
-                        <input class="" type="number" name="working_days" id="working-days" min="0" max="30"
-                            oninput="calculateNetPay()" placeholder="0-30" required>
+                        <input class="" type="number" name="working_days" id="working-days" min="1" max="30"
+                            oninput="calculateNetPay()" placeholder="1-30" required>
                         <label>Number of Non-Working Days: </label>
-                        <input class="" type="number" name="non_working_days" id="non-working-days" min="0" max="30"
-                            oninput="calculateNetPay()" placeholder="0-30" required>
+                        <input class="" type="number" name="non_working_days" id="non-working-days" min="1" max="30"
+                            oninput="calculateNetPay()" placeholder="1-30" required>
                     </div>
                 </div>
             </div>
@@ -562,7 +565,6 @@
         <button type="button" onclick="prefillEarnings()" class="btn btn-primary">Pay for 15k</button>
         <button type="button" onclick="manualPay()" class="btn btn-primary">Manual Pay</button>
     </div>
-
     <script>
         document.getElementById("generateIdBtn").addEventListener("click", function () {
             const payslipId = generateUniqueId();
@@ -580,7 +582,10 @@
             }
             return id;
         }
-
+        
+    </script>
+    
+    <script>
         // Prefill earnings-deductions fields for "Pay for 15k" option
         function prefillEarnings() {
             document.getElementById("basic-pay").value = 10000;
@@ -616,10 +621,10 @@
             if (selectedValue) {
                 const employeeDetails = JSON.parse(selectedValue);
                 document.getElementById('emp-id').innerText = employeeDetails.empid;
-                document.getElementById('emp-name').innerText = employeeDetails.username.toUpperCase();
-                // document.getElementById('emp-name').innerText = (employeeDetails.first_name + " " + employeeDetails.last_name).toUpperCase();
+                document.getElementById('emp-name').innerText = employeeDetails.username;
                 document.getElementById('emp-id-hidden').value = employeeDetails.empid;  // Hidden input for form submission
                 document.getElementById('emp-name-hidden').value = employeeDetails.username;  // Hidden input for form submission
+                document.getElementById('emp-join').innerText = employeeDetails.joining_date;
                 document.getElementById('uan').innerText = employeeDetails.uan;
                 document.getElementById('pan').innerText = employeeDetails.pan;
                 document.getElementById('bank-name').innerText = employeeDetails.bname;
