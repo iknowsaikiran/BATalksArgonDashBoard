@@ -603,7 +603,6 @@ def projectlist():
         return redirect(url_for('index'))
     
 
-#projectallocation
 @app.route('/projectallocation', methods=['GET', 'POST'])
 def projectallocation():
     username = session.get('username')
@@ -618,19 +617,21 @@ def projectallocation():
         '''
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM project")
-    project_title1=cursor.fetchall()
+    project_title1 = cursor.fetchall()
     cursor.execute("SELECT * FROM users")
-    username1=cursor.fetchall()
+    username1 = cursor.fetchall()
+
     if request.method == 'POST':
-       project_title=request.form['project_title']
-       username=request.form['username']
+       project_title = request.form['project_title']
+       username = request.form['username']
        work_date = request.form['work_date']
-       work_time = request.form['work_time']
        work_description = request.form['work_description']
-       cursor.execute('INSERT INTO workallocation VALUES (NULL, %s, %s, %s, %s, %s)', (project_title, username, work_date, work_time, work_description))
+       cursor.execute('INSERT INTO workallocation (project_title, username, work_date, work_description) VALUES (%s, %s, %s, %s)', 
+                      (project_title, username, work_date, work_description))
        mysql.connection.commit()
        return redirect(url_for('projectallocation'))
-    return render_template('projectallocation.html', project=project_title1, users=username1, user_role=user_role )
+
+    return render_template('projectallocation.html', project=project_title1, users=username1, user_role=user_role)
 
 
 #projectallocated

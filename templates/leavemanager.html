@@ -292,8 +292,22 @@
                 return;
             }
 
+            // Validate that the reason is not just numbers
+            const isNumeric = /^[0-9]+$/.test(rejectReason);
+            if (isNumeric) {
+                alert("Reason cannot contain only numbers.");
+                return; // Prevent submission
+            }
+
+            // Validate that the reason is not just special characters
+            const isSpecialChars = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/.test(rejectReason);
+            if (isSpecialChars) {
+                alert("Reason cannot contain only special characters.");
+                return; // Prevent submission
+            }
+
             // Get the employee details from the row
-            const row = currentRejectButton.closest('tr');
+            const row = currentRejectButton.closest('tr'); // Assuming 'currentRejectButton' is defined somewhere else in your code
             const username = row.querySelector('[data-username]').getAttribute('data-username');
             const leaveType = row.querySelector('[data-leavetype]').getAttribute('data-leavetype');
             const startDate = row.querySelector('[data-startdate]').getAttribute('data-startdate');
