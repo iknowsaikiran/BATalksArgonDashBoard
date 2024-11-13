@@ -138,7 +138,8 @@
                 </div>
                 <div class="mb-3 password">
                   <input id="password" name="password" type="password" class="form-control" placeholder="Password"
-                    aria-label="Password">
+                    aria-label="Password" oninput="validatePassword(this)">
+                  <span id="passwordError" style="color: red;"></span> <!-- Error message span -->
                 </div>
                 <div class="form-check form-check-info text-start">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -201,6 +202,28 @@
               nameError.innerText = ''; // Clear error message for valid input
             }
           }
+
+          //function validatePassword(input) {
+          //  const password = input.value.trim();
+          //  const passwordError = document.getElementById('passwordError'); // Reference to error message span
+    
+          // Check if password contains only numbers
+          //  if (/^\d+$/.test(password)) {
+          //    passwordError.innerText = 'Enter valid input: Password cannot contain only numbers.'; // Show error for numbers only
+          //  }
+          // Check if password contains only letters (no digits or special characters)
+          //  else if (/^[a-zA-Z]+$/.test(password)) {
+          //    passwordError.innerText = 'Enter valid input: Password must contain both letters and numbers.'; // Show error if no digits
+          //  }
+          // Check if password contains only special characters (no letters or numbers)
+          //  else if (/^[^\w\s]+$/.test(password)) {
+          //    passwordError.innerText = 'Enter valid input: Password cannot contain only special characters.'; // Show error for special characters only
+          //  } 
+          // If the password is valid (contains letters and numbers, no special characters only)
+          //  else {
+          //    passwordError.innerText = ''; // Clear error message for valid input
+          //  }
+          //}
       </script>
 
 
