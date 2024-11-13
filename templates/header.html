@@ -19,6 +19,9 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="/static/assets//css/argon-dashboard.css?v=2.1.0" rel="stylesheet" />
     <style>
+        body{
+            overflow-y: hidden;
+        }
         /* Add hover effect */
         .nav-link:hover {
             background-color: #512888 ;  /* Highlight background */
@@ -31,8 +34,21 @@
         }
     
         /* Optional: change text color when hovered */
-        .nav-link:hover  {
-            color: white;  /* Same highlight color for text */
+        .nav-link:hover .nav-link-text {
+            color: #ec6123;  /* Same highlight color for text */
+        
+        }
+        .weltitle{
+        font-size: 30px;
+        }
+        @media (max-width:700px){
+            .weltitle{
+                font-size:15px;
+            }
+            .logout_img{
+                height:45px;
+            }
+
         }
         .nav-link-text:hover{
             color:white;
@@ -49,8 +65,8 @@
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="/dashboard">
-                <!-- <img src="static/assets/img/favicon.png" class="navbar-brand-img h-100" alt="main_logo"> -->
-                <span class="ms-5 font-weight-bolder text-lg">My Menu</span>
+                <img src="static/assets/img/favicon.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold">BAtalks Pvt Ltd</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -282,8 +298,8 @@
             data-scroll="false">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    <h5 class="font-weight-bolder text-white mb-0" style="font-size: 40px;">Welcome, {{
-                        session['username']|capitalize }}!</h5>
+                    <h6 class="font-weight-bolder text-white mb-0 weltitle"  id="wel_title">Welcome, {{
+                        session['username']|capitalize }}!</h6>
                     <p style="color: aliceblue;">Date: <span id="current_date"></span></p>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
@@ -297,17 +313,16 @@
                         <li class="nav-item d-flex align-items-center">
                             <a href="/profile" class="nav-link text-white font-weight-bold px-0 ">
                                 <i class="fa fa-user fa-2x me-sm-1"></i>
-
                                 <span class="d-sm-inline d-none">Profile</span>
                             </a>
                         </li>
                         <li class="nav-item d-flex align-items-center ">
                             <a href="/logout" class="nav-link text-white font-weight-bold px-0 ">
-                                <img src="/static/assets//img/logout.png" alt="" srcset="">
+                                <img src="/static/assets//img/logout.png" alt="" srcset="" class="logout_img">
                                 <span class="d-sm-inline d-none">log out</span>
                             </a>
                         </li>
-                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                        <li class="nav-item d-xl-none d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line bg-white"></i>
