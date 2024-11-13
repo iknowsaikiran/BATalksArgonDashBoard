@@ -25,7 +25,6 @@
         .payslip-container {
             width: 90%;
             max-width: 800px;
-        
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -39,7 +38,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom:4px;
             flex-wrap: wrap;
         }
 
@@ -61,7 +60,7 @@
         .earnings-deductions,
         .total-net-payable {
             border: 1px solid #ccc;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             border-radius: 5px;
             padding: 10px;
             background-color: #f9f9f9;
@@ -188,7 +187,7 @@
             margin-left: 10px;
             padding: 10px;
             /* Adjust padding as necessary */
-            height: 1095px;
+            height: 1065px;
         }
 
         @media print {
@@ -474,8 +473,8 @@
                 </table>
             </div>
             <div class="note">
-                <p style="padding: 0; margin-bottom:0px;">-- This is a system generated payslip, hence the signature is not required. --</p>
-                <p id="unique_number" style="font-size: 14px;">Unique Payslip Number: {{payslip[19]}}</p>
+                <p style="padding: 0; margin-bottom:0px;font-size: 11px;">-- This is a system generated payslip, hence the signature is not required. --</p>
+                <p id="unique_number" style="font-size: 11px; margin-bottom: 0px;">Unique Payslip Number: {{payslip[19]}}</p>
             </div>
         </div>
     </div>
