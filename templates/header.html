@@ -19,10 +19,12 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="/static/assets//css/argon-dashboard.css?v=2.1.0" rel="stylesheet" />
     <style>
-      
+        body{
+            overflow-y: hidden;
+        }
         /* Add hover effect */
         .nav-link:hover {
-            background-color: #512888 ;  /* Highlight background */
+            background-color: #e0cdf8 ;  /* Highlight background */
             border-radius: 0.375rem; /* Optional: rounded corners */
         }
     
@@ -33,11 +35,14 @@
     
         /* Optional: change text color when hovered */
         .nav-link:hover .nav-link-text {
-            color: #ec6123;  /* Same highlight color for text */
+            color: rgb(7, 6, 6);  /* Same highlight color for text */
         
         }
         .weltitle{
         font-size: 30px;
+        }
+        .mymenu{
+            font-size: 20px;
         }
         @media (max-width:700px){
             .weltitle{
@@ -54,6 +59,7 @@
         .logout_img{
                 height:45px;
             }
+            
 
     </style>
 </head>
@@ -66,9 +72,9 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="/dashboard">
-                <img src="static/assets/img/favicon.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold">BAtalks Pvt Ltd</span>
+            <a class="navbar-brand m-0 text-center" href="/dashboard">
+               
+                <span class="ms-1 font-weight-bolder mymenu">My Menu</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
