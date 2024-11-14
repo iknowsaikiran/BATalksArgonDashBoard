@@ -53,20 +53,20 @@
                   <div class=" col-md-4">
                     <div class="form-group">
                       <label for="project_title" class="form-control-label fontsz">Project Title</label>
-                      <input class="form-control" type="text" name="project_title" id="project_title" value="">
+                      <input class="form-control" type="text" name="project_title" id="project_title" value="" required>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12 col-md-3">
                       <div class="form-group">
                         <label for="start_date" class="form-control-label fontsz">Start Date</label>
-                        <input class="form-control" type="date" name="start_date" id="start_date" value="">
-                      </div>
+                        <input class="form-control" type="date" name="start_date" id="start_date" required oninput="validateYear(this)">
+                    </div>
                     </div>
                     <div class="col-12 col-md-3">
                       <div class="form-group">
                         <label for="end_date" class="form-control-label fontsz">End Date</label>
-                        <input class="form-control" type="date" name="end_date" id="end_date" value="">
+                        <input class="form-control" type="date" name="end_date" id="end_date" value="" required oninput="validateYear(this)">
                       </div>
                     </div>
 
@@ -76,7 +76,7 @@
                     <div class="form-group">
                       <label for="description" class="form-control-label fontsz">Description</label>
                       <textarea class="form-control" name="description" id="description" rows="5"
-                        placeholder="Project description" style="width: 100%;"></textarea>
+                        placeholder="Project description" style="width: 100%;" required></textarea>
                     </div>
                   </div>
 
@@ -117,6 +117,20 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  <script>
+    function validateYear(dateInput) {
+        const dateValue = dateInput.value;
+
+        // Check if the date format is valid (YYYY-MM-DD)
+        const dateParts = dateValue.split("-");
+        if (dateParts[0] && dateParts[0].length > 4) {
+            // Limit the year part to 4 digits
+            dateParts[0] = dateParts[0].substring(0, 4);
+            dateInput.value = dateParts.join("-");
+        }
+    }
+</script>
+  
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

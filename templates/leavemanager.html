@@ -20,10 +20,7 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.1.0" rel="stylesheet" />
     <style>
-        .btn {
-            background-color: #512888;
-            color: white
-        }
+        
 
         .mcard {
             margin-top: 8rem;
@@ -191,9 +188,9 @@
                                             <td class="leave-status" data-status="{{ employee[6] }}">
                                                 {% if employee[6] == 'Pending' %}
                                                 <!-- Show buttons if leave status is still Pending -->
-                                                <button class="leave-button btn"
+                                                <button class="leave-button btn btn-success"
                                                     onclick="updateStatus(this, 'Approved')">Approve</button>
-                                                <button class="leave-button btn"
+                                                <button class="leave-button btn btn-danger"
                                                     onclick="openRejectModal(this)">Reject</button>
                                                 {% else %}
                                                 <!-- Show the status if leave is already processed -->
@@ -216,8 +213,8 @@
 
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button class="btn " onclick="closeRejectModal()">Cancel</button>
-                                            <button class="btn " onclick="confirmReject()">Confirm</button>
+                                            <button class="btn btn-danger " onclick="closeRejectModal()">Cancel</button>
+                                            <button class="btn btn-success" onclick="confirmReject()">Confirm</button>
                                         </div>
                                     </div>
                                 </div>
