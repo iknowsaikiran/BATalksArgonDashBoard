@@ -52,7 +52,7 @@
                     <div class="col-12 col-md-6 mb-3">
                         <div class="form-group">
                             <label for="project" class="form-control-label text-sm">Project</label>
-                            <select name="project_title" id="project" class="form-control">
+                            <select name="project_title" id="project" class="form-control" required>
                                 <option id="clr" value="select project">Select project</option>
                                 {% for row in project %}
                                 <option id="clr" value="{{ row[1] }}">{{ row[1] }}</option>
@@ -64,7 +64,7 @@
                     <div class="col-12 col-md-6 mb-3">
                         <div class="form-group">
                             <label for="username" class="form-control-label text-sm">Allocated to</label>
-                            <select name="username" id="username" class="form-control">
+                            <select name="username" id="username" class="form-control" required>
                                 <option id="clr" value="select Employee">Select Employee</option>
                                 {% for user in users %}
                                 <option id="clr" value="{{ user[1] }}">{{ user[1] }}</option>
@@ -90,7 +90,7 @@
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
                             <label for="work_description" class="form-control-label text-sm">Description</label>
-                            <textarea class="form-control" name="work_description" rows="5" placeholder="Work description"></textarea>
+                            <textarea class="form-control" name="work_description" rows="5" placeholder="Work description" required></textarea>
                         </div>
                     </div>
                     <div class="col-12">
