@@ -9,8 +9,13 @@ app.secret_key = 'your_secret_key'
 # MySQL configurations
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
+<<<<<<< HEAD
 app.config['MYSQL_PASSWORD'] = 'root123'
 app.config['MYSQL_DB'] = 'dashboard'
+=======
+app.config['MYSQL_PASSWORD'] = 'Saty@136'
+app.config['MYSQL_DB'] = 'emp'
+>>>>>>> 892eb2af6a2d70b98e227cbb14c83a6d961ee029
 
 mysql = MySQL(app)
 
@@ -266,7 +271,7 @@ def adduser():
         finally:
             # Close the cursor
             cursor.close()
-        return redirect(url_for('index')) # change index to profile 
+        return redirect(url_for('profile')) # change index to profile 
     
     return render_template('adduser.html', user_role=user_role)
 
@@ -602,7 +607,38 @@ def projectlist():
     else:
         return redirect(url_for('index'))
     
+#update project
+@app.route('/update_project/<int:project_id>', methods=['POST'])
+def update_project(project_id):
+    updated_data = request.json
+    try:
+        cur = mysql.connection.cursor()
+        cur.execute("""
+            UPDATE project
+            SET project_title = %s, description = %s, start_date = %s, end_date = %s
+            WHERE id = %s
+        """, (updated_data['project_title'], updated_data['description'], updated_data['start_date'], updated_data['end_date'], project_id))
+        mysql.connection.commit()
+        cur.close()
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
 
+
+#delete project
+@app.route('/delete_project/<int:project_id>', methods=['POST'])
+def delete_project(project_id):
+    try:
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM project WHERE id = %s", (project_id,))
+        mysql.connection.commit()
+        cur.close()
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+    
+#projectallocation
 @app.route('/projectallocation', methods=['GET', 'POST'])
 def projectallocation():
     username = session.get('username')
@@ -624,7 +660,7 @@ def projectallocation():
     if request.method == 'POST':
        project_title = request.form['project_title']
        username = request.form['username']
-       work_date = request.form['work_date']
+       work_date = request.form['start_date']
        work_description = request.form['work_description']
        cursor.execute('INSERT INTO workallocation (project_title, username,work_date, work_description) VALUES (%s,%s %s, %s)', 
                       (project_title, username,work_date work_description))

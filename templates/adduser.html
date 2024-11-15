@@ -86,11 +86,19 @@
 
                                     <!-- First Name Field -->
                                     <div class="col-md-6 mb-3">
+<<<<<<< HEAD
                                         <label for="first_name" class="form-control-label fontsz">First name<span class="required">*</span></label>
                                         <input class="form-control" type="text" name="first_name" id="first_name"
                                             placeholder="First Name" pattern="[A-Za-z]+" required
                                             oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')">
+=======
+                                        <label for="first_name" class="form-control-label fontsz">First name</label>
+                                        <input class="form-control" type="text" name="first_name" id="first_name" placeholder="First Name"
+                                            pattern="[A-Za-z\s]+" required
+                                            oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
+>>>>>>> 892eb2af6a2d70b98e227cbb14c83a6d961ee029
                                     </div>
+                                    
 
                                     <!-- Last Name Field -->
                                     <div class="col-md-6 mb-3">
