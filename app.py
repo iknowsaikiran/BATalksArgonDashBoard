@@ -9,8 +9,8 @@ app.secret_key = 'your_secret_key'
 # MySQL configurations
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '1234@Saikiran'
-app.config['MYSQL_DB'] = 'emp'
+app.config['MYSQL_PASSWORD'] = 'root123'
+app.config['MYSQL_DB'] = 'dashboard'
 
 mysql = MySQL(app)
 
@@ -626,8 +626,8 @@ def projectallocation():
        username = request.form['username']
        work_date = request.form['work_date']
        work_description = request.form['work_description']
-       cursor.execute('INSERT INTO workallocation (project_title, username, work_date, work_description) VALUES (%s, %s, %s, %s)', 
-                      (project_title, username, work_date, work_description))
+       cursor.execute('INSERT INTO workallocation (project_title, username,work_date, work_description) VALUES (%s,%s %s, %s)', 
+                      (project_title, username,work_date work_description))
        mysql.connection.commit()
        return redirect(url_for('projectallocation'))
 

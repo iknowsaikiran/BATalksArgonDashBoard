@@ -31,12 +31,19 @@
         body {
             overflow-x: hidden;
         }
-        .btn{
+
+        .btn {
             background-color: #512888;
-            color:white
-          }
+            color: white
+        }
+
+        .required {
+            color: red;
+            font-weight: bold;
+            padding: 5px;
+        }
     </style>
-    
+
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -48,9 +55,9 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0 d-flex">
-                            
-                                <h3 class="fontsz">Leave Request</h3>
-                            
+
+                            <h3 class="fontsz">Leave Request</h3>
+
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <form method="POST" class="needs-validation p-2" novalidate>
@@ -58,7 +65,7 @@
                                 <div class="mb-3 row">
                                     <div class="col-md-4">
                                         <label for="leave_type" class="col-12 col-md-4 col-form-label">Leave
-                                            Type</label>
+                                            Type<span class="required">*</span></label>
                                         <div>
                                             <select class="form-select col-12 col-md-4" name="leave_type"
                                                 id="leave_type" required>
@@ -75,19 +82,19 @@
                                     <!-- Start Date Section -->
                                     <div class="col-md-4">
                                         <label for="start_date" class="col-12 col-md-4 col-form-label">Start
-                                            Date</label>
+                                            Date<span class="required">*</span></label>
                                         <input type="text" class="form-control" name="start_date" id="start_date"
                                             placeholder="Select Start Date" readonly required>
                                     </div>
                                     <!-- End Date Section -->
                                     <div class="col-md-4">
-                                        <label for="end_date" class="col-12 col-md-4 col-form-label">End Date</label>
+                                        <label for="end_date" class="col-12 col-md-4 col-form-label">End Date<span class="required">*</span></label>
 
                                         <input type="text" class="form-control" name="end_date" id="end_date"
                                             placeholder="Select End Date" readonly required>
                                     </div>
                                     <div class=" col-md-6">
-                                        <label for="reason" class="col-12 col-md-4 col-form-label">Reason</label>
+                                        <label for="reason" class="col-12 col-md-4 col-form-label">Reason<span class="required">*</span></label>
                                         <div class="col-12 col-md-8">
                                             <textarea class="form-control" name="reason" rows="5" id="reason"
                                                 placeholder="Reason" required></textarea>
@@ -114,7 +121,8 @@
                             <table class="table align-items-center justify-content-center mb-0 ">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-large font-weight-bolder opacity-7">
+                                        <th
+                                            class="text-uppercase text-secondary text-large font-weight-bolder opacity-7">
                                         </th>
                                         <th
                                             class="text-uppercase text-secondary text-large font-weight-bolder opacity-7 ps-2">
@@ -134,7 +142,8 @@
                                         <th
                                             class="text-uppercase text-secondary text-large font-weight-bolder opacity-7 ps-2">
                                             STATUS</th>
-                                        <th class="text-uppercase text-secondary text-large font-weight-bolder opacity-7">
+                                        <th
+                                            class="text-uppercase text-secondary text-large font-weight-bolder opacity-7">
                                             DAYS</th>
                                     </tr>
                                 </thead>
@@ -185,7 +194,7 @@
             var today = new Date();
             var twoDaysAfter = new Date();
             twoDaysAfter.setDate(today.getDate() + 3);
-    
+
             $('#start_date').datepicker({
                 format: 'dd/mm/yyyy',
                 autoclose: true,
@@ -203,7 +212,7 @@
             }).on('changeDate', function (e) {
                 checkFields(); // Validate form
             });
-    
+
             $('#leave_type').change(function () {
                 var leaveType = $(this).val();
                 if (leaveType === "casual") {

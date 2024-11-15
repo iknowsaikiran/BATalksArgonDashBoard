@@ -45,6 +45,11 @@
             background-color: white;
 
         }
+        .required {
+            color: red;
+            font-weight: bold;
+            padding: 5px;
+        }
     </style>
 
 </head>
@@ -63,7 +68,7 @@
                                 <div class="row">
                                     <!-- Date Field -->
                                     <div class="col-12 col-md-6 mb-3">
-                                        <label>Date</label><br />
+                                        <label>Date<span class="required">*</span></label><br />
                                         <input class="form-control" type="date" id="date" name="date" value="" required
                                             readonly />
                                     </div>
@@ -71,8 +76,8 @@
                                     <!-- Timings Select Field 1 -->
                                      <div class="row">
                                         <div class="col-12 col-md-6 mb-3">
-                                            <label>Timings</label><br />
-                                            <select class="form-control" name="Timings" id="timings">
+                                            <label>Timings<span class="required">*</span></label><br />
+                                            <select class="form-control" name="Timings" id="timings" required>
                                                 <option value="" disabled selected>Select Timings</option>
                                                 <option value="9am to 10am">9am to 10am</option>
                                                 <option value="10am to 11am">10am to 11am</option>
@@ -85,7 +90,7 @@
                                                 <option value="4:30pm to 5pm">4:30pm to 5pm</option>
                                                 <option value="5pm to 6pm">5pm to 6pm</option>
                                             </select>
-                                            <select class="form-control" name="Timings" id="timings-int">
+                                            <select class="form-control" name="Timings" id="timings-int" required>
                                                 <option value="" disabled selected>Select Timings</option>
                                                 <option value="9am to 10am">9am to 10am</option>
                                                 <option value="10am to 11am">10am to 11am</option>
@@ -107,9 +112,9 @@
 
                                     <!-- Work Done Field -->
                                     <div class="col-12 mb-3">
-                                        <label>Work Done</label><br />
+                                        <label>Work Done<span class="required">*</span></label><br />
                                         <textarea class="form-control" name="workdone" rows="5" cols="30"
-                                            placeholder="Work description" style="max-width: 300px;"></textarea>
+                                            placeholder="Work description" style="max-width: 300px;" required></textarea>
                                     </div>
 
                                     <!-- Save Button -->
