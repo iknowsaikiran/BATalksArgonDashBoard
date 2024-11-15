@@ -620,11 +620,14 @@
         function fillEmployeeDetails(selectedValue) {
             if (selectedValue) {
                 const employeeDetails = JSON.parse(selectedValue);
+                
+                // Populate the fields
                 document.getElementById('emp-id').innerText = employeeDetails.empid;
                 document.getElementById('emp-name').innerText = employeeDetails.username;
-                document.getElementById('emp-id-hidden').value = employeeDetails.empid;  // Hidden input for form submission
-                document.getElementById('emp-name-hidden').value = employeeDetails.username;  // Hidden input for form submission
-                document.getElementById('emp-join').innerText = employeeDetails.joining_date;
+                document.getElementById('emp-id-hidden').value = employeeDetails.empid;
+                document.getElementById('emp-name-hidden').value = employeeDetails.username;
+        
+                // Fill UAN, PAN, Bank details
                 document.getElementById('uan').innerText = employeeDetails.uan;
                 document.getElementById('pan').innerText = employeeDetails.pan;
                 document.getElementById('bank-name').innerText = employeeDetails.bname;
@@ -632,6 +635,7 @@
                 document.getElementById('account-no').innerText = employeeDetails.account_number;
             }
         }
+        
 
         function filterEmployees() {
             const input = document.getElementById('searchInput');
